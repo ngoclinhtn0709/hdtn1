@@ -40,7 +40,7 @@
         <!-- Màn hình bắt đầu -->
         <div id="start-screen">
             <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">Bài Kiểm Tra Trắc Nghiệm</h1>
-            <p class="text-center text-gray-600 mb-6">Bạn có 10 phút để hoàn thành 10 câu hỏi. Mỗi câu trả lời đúng được 1 điểm.</p>
+            <p class="text-center text-gray-600 mb-6">Bạn có 15 phút để hoàn thành 20 câu hỏi. Mỗi câu trả lời đúng được 0.5 điểm.</p>
             <div class="mb-4">
                 <label for="student-name" class="block text-sm font-medium text-gray-700 mb-2">Vui lòng nhập họ và tên:</label>
                 <input type="text" id="student-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Nguyễn Văn A">
@@ -52,8 +52,8 @@
         <div id="quiz-screen" class="hidden">
             <!-- Header -->
             <div class="flex justify-between items-center mb-6 border-b pb-4">
-                <h2 class="text-xl font-bold text-gray-800">Câu <span id="question-number">1</span>/10</h2>
-                <div id="timer" class="text-2xl font-bold text-red-500 bg-red-100 px-4 py-2 rounded-lg">10:00</div>
+                <h2 class="text-xl font-bold text-gray-800">Câu <span id="question-number">1</span>/20</h2>
+                <div id="timer" class="text-2xl font-bold text-red-500 bg-red-100 px-4 py-2 rounded-lg">15:00</div>
             </div>
 
             <!-- Nội dung câu hỏi -->
@@ -104,54 +104,104 @@
         // Dữ liệu câu hỏi. Thay thế các URL ảnh và đáp án tại đây.
         const quizData = [
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1Mrg_nD17y8L04hJRRaOCRAu0nBPf554K",
-                options: ["Đáp án A cho câu 1", "Đáp án B cho câu 1", "Đáp án C cho câu 1", "Đáp án D cho câu 1"],
-                answer: "Đáp án A cho câu 1"
+                questionImage: "../Anh/KT01/c01.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án C"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1flnbmO-eaY-aMtDjKPeZ9BX32Z-atOVk",
-                options: ["Đáp án A cho câu 2", "Đáp án B cho câu 2", "Đáp án C cho câu 2", "Đáp án D cho câu 2"],
-                answer: "Đáp án B cho câu 2"
+                questionImage: "../Anh/KT01/c02.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án A"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1m6bbem8G_QWMf6r556fGLlfXQbfgXNMs",
-                options: ["Đáp án A cho câu 3", "Đáp án B cho câu 3", "Đáp án C cho câu 3", "Đáp án D cho câu 3"],
-                answer: "Đáp án C cho câu 3"
+                questionImage: "../Anh/KT01/c03.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án D"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1kCrTwNFYZLWTP2ROmAAbVjkT44dz_q69",
-                options: ["Đáp án A cho câu 4", "Đáp án B cho câu 4", "Đáp án C cho câu 4", "Đáp án D cho câu 4"],
-                answer: "Đáp án D cho câu 4"
+                questionImage: "../Anh/KT01/c04.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án A"
             },
              {
-                questionImage: "https://drive.google.com/uc?export=view&id=12qF4RwBR1IqIhGIaxHhXpC7-FUA78cxK",
-                options: ["Đáp án A cho câu 5", "Đáp án B cho câu 5", "Đáp án C cho câu 5", "Đáp án D cho câu 5"],
-                answer: "Đáp án A cho câu 5"
+                questionImage: "../Anh/KT01/c05.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án B"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1G2Y3YNgvaDP6SxtKXTuB9QDcTN9robNH",
-                options: ["Đáp án A cho câu 6", "Đáp án B cho câu 6", "Đáp án C cho câu 6", "Đáp án D cho câu 6"],
-                answer: "Đáp án B cho câu 6"
+                questionImage: "../Anh/KT01/c06.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án A"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1OVRcoKg7PNPU9Z_e3aGKux32vRuGpAYE",
-                options: ["Đáp án A cho câu 7", "Đáp án B cho câu 7", "Đáp án C cho câu 7", "Đáp án D cho câu 7"],
-                answer: "Đáp án C cho câu 7"
+                questionImage: "../Anh/KT01/c07.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án A"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1UVNKRoW4q30Y__gLhzf9aDh4LE0xZ8fD",
-                options: ["Đáp án A cho câu 8", "Đáp án B cho câu 8", "Đáp án C cho câu 8", "Đáp án D cho câu 8"],
-                answer: "Đáp án D cho câu 8"
+                questionImage: "../Anh/KT01/c08.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án D"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1MyXRD0hRJXSuAezuPXtqtyiKhmXsaYcr",
-                options: ["Đáp án A cho câu 9", "Đáp án B cho câu 9", "Đáp án C cho câu 9", "Đáp án D cho câu 9"],
-                answer: "Đáp án A cho câu 9"
+                questionImage: "../Anh/KT01/c09.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án A"
             },
             {
-                questionImage: "https://drive.google.com/uc?export=view&id=1VWKuv9spJU_KkEl4IJ2JcDlk0Wsm_vtb",
-                options: ["Đáp án A cho câu 10", "Đáp án B cho câu 10", "Đáp án C cho câu 10", "Đáp án D cho câu 10"],
-                answer: "Đáp án B cho câu 10"
+                questionImage: "../Anh/KT01/c10.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án D"
+            },
+            {
+                questionImage: "../Anh/KT01/c11.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án B"
+            },
+            {
+                questionImage: "../Anh/KT01/c12.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án B"
+            },
+            {
+                questionImage: "../Anh/KT01/c13.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án C"
+            },
+            {
+                questionImage: "../Anh/KT01/c14.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án A"
+            },
+            {
+                questionImage: "../Anh/KT01/c15.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án B"
+            },
+            {
+                questionImage: "../Anh/KT01/c16.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án B"
+            },
+            {
+                questionImage: "../Anh/KT01/c17.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án D"
+            },
+            {
+                questionImage: "../Anh/KT01/c18.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án D"
+            },
+            {
+                questionImage: "../Anh/KT01/c19.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án B"
+            },
+            {
+                questionImage: "../Anh/KT01/c20.png",
+                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                answer: "Đáp án C"
             }
         ];
 
@@ -179,7 +229,7 @@
         let currentQuestionIndex = 0;
         let score = 0;
         let timer;
-        let timeLeft = 600; // 10 minutes in seconds
+        let timeLeft = 600; // 15 minutes in seconds
         let userAnswers = [];
         let studentName = '';
 
@@ -262,7 +312,7 @@
             quizScreen.classList.add('hidden');
             resultScreen.classList.remove('hidden');
             
-            scoreEl.textContent = score;
+            scoreEl.textContent = score*0.5;
             resultNameEl.textContent = studentName;
 
             submitScore();
@@ -279,7 +329,7 @@
 
         function startTimer() {
             timeLeft = 600;
-            timerEl.textContent = '10:00';
+            timerEl.textContent = '15:00';
             timer = setInterval(() => {
                 timeLeft--;
                 const minutes = Math.floor(timeLeft / 60);
@@ -304,7 +354,7 @@
             
             const data = {
                 name: studentName,
-                score: score,
+                score: score*0.5,
                 total: quizData.length
             };
 
